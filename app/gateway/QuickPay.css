@@ -1,0 +1,301 @@
+/* ════════════════════════════════════════════════════════════════
+   Quick Pay — qp- namespace. Mobile-first; centers at 440px on desktop.
+   ════════════════════════════════════════════════════════════════ */
+
+.qp-root {
+  --qp-accent: #1d6bf3;
+  --qp-accent-dark: color-mix(in srgb, var(--qp-accent) 82%, #000);
+  --qp-accent-soft: color-mix(in srgb, var(--qp-accent) 9%, #fff);
+  --qp-bg: #f5f7fb;
+  --qp-surface: #fff;
+  --qp-text: #0b1220;
+  --qp-text-2: #334155;
+  --qp-muted: #7b8698;
+  --qp-line: #e7ecf3;
+  --qp-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 4px 14px -6px rgba(15, 23, 42, .08);
+
+  height: 100vh; height: 100dvh; overflow: hidden;
+  display: flex; justify-content: center;
+  background: var(--qp-bg); color: var(--qp-text);
+  font-size: 15px; text-align: left; -webkit-tap-highlight-color: transparent;
+}
+.qp-screen {
+  width: 100%; max-width: 440px; height: 100vh; height: 100dvh;
+  display: flex; flex-direction: column; overflow: hidden;
+  padding: 10px 20px calc(12px + env(safe-area-inset-bottom));
+}
+.qp-root button { font: inherit; -webkit-user-select: none; user-select: none; }
+
+/* ── Top bar ── */
+.qp-topbar { display: flex; align-items: center; justify-content: space-between; min-height: 40px; }
+.qp-spacer { width: 46px; }
+.qp-round {
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--qp-line);
+  background: var(--qp-surface); color: var(--qp-text); font-size: 19px;
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: var(--qp-shadow); transition: transform .12s, background .15s;
+}
+.qp-round:active { transform: scale(.94); }
+.qp-brand { display: flex; align-items: center; gap: 12px; }
+.qp-brand-name { font-size: 24px; font-weight: 700; letter-spacing: -.02em; }
+.qp-brand-logo { width: 36px; height: 36px; object-fit: contain; }
+.qp-brand-mark { position: relative; width: 36px; height: 32px; }
+.qp-brand-mark span { position: absolute; border-radius: 50%; }
+.qp-brand-mark span:nth-child(1) { width: 18px; height: 18px; left: 9px; top: 0; background: #5b9dff; }
+.qp-brand-mark span:nth-child(2) { width: 18px; height: 18px; left: 0; top: 13px; background: var(--qp-accent); }
+.qp-brand-mark span:nth-child(3) { width: 18px; height: 18px; left: 16px; top: 13px; background: #0f4fd1; opacity: .9; }
+
+/* ── Context badge (merchant / branch / user) ── */
+.qp-context {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  margin-top: 6px; padding: 7px 12px; border-radius: 12px;
+  background: var(--qp-accent-soft); border: 1px solid color-mix(in srgb, var(--qp-accent) 18%, transparent);
+}
+.qp-context-items { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.qp-context-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--qp-text-2); }
+.qp-context-item i { font-size: 12px; color: var(--qp-accent); }
+.qp-context-logout {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 0; background: none; padding: 2px; color: var(--qp-muted); font-size: 12.5px; font-weight: 600; cursor: pointer;
+}
+.qp-context-logout:hover { color: #c0261a; }
+
+/* ── Stepper ── */
+.qp-steps { display: grid; grid-template-columns: repeat(3, 1fr); list-style: none; margin: 10px 0 14px; padding: 0 12px; }
+.qp-step { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.qp-step-dot {
+  position: relative; z-index: 1;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e6ebf2; color: #9aa6b8; font-size: 14px; font-weight: 600;
+  transition: background .25s, color .25s, box-shadow .25s;
+}
+.qp-step.is-current .qp-step-dot,
+.qp-step.is-done .qp-step-dot { background: var(--qp-accent); color: #fff; }
+.qp-step.is-active .qp-step-dot { box-shadow: 0 0 0 5px color-mix(in srgb, var(--qp-accent) 16%, transparent); }
+.qp-step-label { font-size: 14px; color: #9aa6b8; }
+.qp-step.is-done .qp-step-label { color: var(--qp-muted); }
+.qp-step.is-active .qp-step-label { color: var(--qp-accent); font-weight: 600; }
+.qp-step-line {
+  position: absolute; top: 14px; height: 2px; left: calc(50% + 22px); right: calc(-50% + 22px);
+  background: #dde3ec; border-radius: 2px; transition: background .25s;
+}
+.qp-step-line.is-done { background: var(--qp-accent); }
+
+/* ── Body / footer ── */
+.qp-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; animation: qp-in .28s ease both; }
+@keyframes qp-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.qp-footer { padding-top: 12px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.qp-card { background: var(--qp-surface); border-radius: 22px; box-shadow: var(--qp-shadow); }
+
+/* ── Primary button ── */
+.qp-primary {
+  position: relative; width: 100%; height: 52px; border: 0; border-radius: 16px;
+  background: var(--qp-accent); color: #fff; font-size: 19px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--qp-accent) 80%, transparent);
+  transition: background .15s, transform .12s, opacity .15s;
+}
+.qp-primary:hover:not(:disabled) { background: var(--qp-accent-dark); }
+.qp-primary:active:not(:disabled) { transform: scale(.985); }
+.qp-primary:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.qp-primary-icon { position: absolute; right: 24px; font-size: 20px; display: inline-flex; }
+.qp-spinner {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, .35); border-top-color: #fff;
+  animation: qp-spin .7s linear infinite;
+}
+@keyframes qp-spin { to { transform: rotate(360deg); } }
+.qp-error {
+  display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px;
+  background: #fef1f0; color: #c0261a; font-size: 14px;
+}
+
+/* ════ Step 1: Amount ════ */
+.qp-amount-card { padding: 16px 20px 18px; }
+.qp-currency {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 600; color: var(--qp-text); margin-bottom: 4px;
+}
+.qp-currency i { font-size: 16px; color: var(--qp-text-2); }
+.qp-currency-select { position: relative; }
+.qp-currency-select select {
+  appearance: none; -webkit-appearance: none; border: 0; background: transparent;
+  font: inherit; color: inherit; padding-right: 22px; cursor: pointer; outline: none;
+}
+.qp-currency-select i { position: absolute; right: 0; pointer-events: none; }
+
+.qp-amount-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.qp-amount {
+  display: flex; align-items: center; min-width: 0;
+  font-size: 46px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.qp-amount.is-md { font-size: 40px; }
+.qp-amount.is-sm { font-size: 34px; }
+.qp-amount.is-xs { font-size: 28px; }
+.qp-amount.is-empty { color: #c3cbd7; }
+.qp-caret { width: 3px; height: .95em; margin-left: 4px; border-radius: 2px; background: var(--qp-accent); animation: qp-blink 1.05s steps(1) infinite; }
+@keyframes qp-blink { 50% { opacity: 0; } }
+.qp-clear {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid #b6c0ce; background: transparent; color: #8793a5; font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.qp-clear:hover { border-color: var(--qp-accent); color: var(--qp-accent); }
+.qp-hint { margin-top: 6px; font-size: 12px; color: #c0261a; }
+
+.qp-quick { display: grid; grid-template-columns: repeat(var(--qp-quick, 4), 1fr); gap: 8px; }
+.qp-quick-btn {
+  height: 36px; border: 1px solid var(--qp-line); border-radius: 10px; background: var(--qp-surface);
+  color: var(--qp-text-2); font-size: 13px; cursor: pointer; transition: all .15s;
+}
+.qp-quick-btn:hover, .qp-quick-btn.is-active { border-color: var(--qp-accent); color: var(--qp-accent); background: var(--qp-accent-soft); }
+
+.qp-keypad { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 4px; }
+.qp-key {
+  height: 100%; min-height: 40px; border: 0; border-radius: 14px; background: var(--qp-surface);
+  color: var(--qp-text); font-size: 22px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+  transition: background .12s, transform .08s;
+}
+.qp-key:hover { background: #fbfcfe; }
+.qp-key:active { transform: scale(.96); background: var(--qp-accent-soft); color: var(--qp-accent); }
+
+/* ════ Step 2: Mode ════ */
+.qp-pay { padding: 0 4px 4px; }
+.qp-pay-label { font-size: 16px; color: var(--qp-muted); margin-bottom: 2px; }
+.qp-pay-amount { font-size: 34px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+
+.qp-methods { display: flex; flex-direction: column; gap: 10px; }
+.qp-method {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) 26px; align-items: center; gap: 14px;
+  width: 100%; padding: 10px 14px; text-align: left; cursor: pointer;
+  border: 1.5px solid transparent; border-radius: 16px; background: var(--qp-surface); color: inherit;
+  box-shadow: var(--qp-shadow); transition: border-color .15s, background .15s, transform .12s;
+}
+.qp-method:active:not(:disabled) { transform: scale(.99); }
+.qp-method.is-selected { border-color: color-mix(in srgb, var(--qp-accent) 55%, transparent); background: var(--qp-accent-soft); }
+.qp-method:disabled { opacity: .5; cursor: not-allowed; }
+.qp-method-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; overflow: hidden;
+}
+.qp-method-icon img { width: 100%; height: 100%; object-fit: cover; }
+.qp-method-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.qp-method-title { font-size: 16px; font-weight: 600; }
+.qp-method-sub { font-size: 13px; color: var(--qp-muted); }
+.qp-radio {
+  width: 26px; height: 26px; border-radius: 50%; border: 2px solid #cfd6e1;
+  display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 12px;
+  transition: all .15s;
+}
+.qp-method.is-selected .qp-radio { background: var(--qp-accent); border-color: var(--qp-accent); }
+
+.qp-solid-green  { background: linear-gradient(145deg, #22c55e, #15a34a); }
+.qp-solid-mint   { background: linear-gradient(145deg, #5cc98b, #3fb36f); }
+.qp-solid-blue   { background: linear-gradient(145deg, #3b82f6, #1d64e0); }
+.qp-solid-purple { background: linear-gradient(145deg, #7c4ddb, #5b2fc2); }
+.qp-solid-amber  { background: linear-gradient(145deg, #fbbf24, #f59e0b); }
+.qp-solid-red    { background: linear-gradient(145deg, #f25555, #d92d20); }
+.qp-solid-gray   { background: linear-gradient(145deg, #94a3b8, #64748b); }
+
+/* ════ Step 2b: Details (mpesa/bank/card) ════ */
+.qp-field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-height: 0; }
+.qp-label { font-size: 13px; font-weight: 600; color: var(--qp-text-2); }
+.qp-input {
+  height: 46px; padding: 0 16px; border: 1.5px solid var(--qp-line); border-radius: 14px;
+  background: var(--qp-surface); color: var(--qp-text); font-size: 17px; font-weight: 600;
+  outline: none; transition: border-color .15s, box-shadow .15s;
+}
+.qp-input::placeholder { color: #b6bfcc; font-weight: 500; }
+.qp-input:focus { border-color: var(--qp-accent); box-shadow: 0 0 0 4px var(--qp-accent-soft); }
+.qp-input-pin { letter-spacing: 10px; text-align: center; }
+.qp-pin-dots { display: flex; justify-content: center; gap: 18px; padding: 6px 0 10px; }
+.qp-pin-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--qp-line); background: transparent; transition: background .15s, border-color .15s, transform .15s; }
+.qp-pin-dot.is-filled { background: var(--qp-accent); border-color: var(--qp-accent); transform: scale(1.05); }
+.qp-keypad-pin { flex: 1; min-height: 0; }
+.qp-keypad-pin .qp-key { height: 100%; min-height: 36px; font-size: 20px; }
+.qp-secondary {
+  width: 100%; height: 40px; border: 0; border-radius: 14px; background: transparent;
+  color: var(--qp-accent); font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.qp-secondary:hover:not(:disabled) { text-decoration: underline; }
+.qp-secondary:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ════ Step 3: Receipt ════ */
+.qp-success { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.qp-success-badge {
+  width: 84px; height: 84px; border-radius: 50%; margin-bottom: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle, #e3f8ea 55%, #effbf3 56%, #f6fdf8 100%);
+  animation: qp-pop .45s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+.qp-success-badge span {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, #e9faef, #d6f5e0); color: #16a34a; font-size: 30px;
+  box-shadow: 0 10px 24px -12px rgba(22, 163, 74, .45);
+}
+@keyframes qp-pop { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+.qp-success-title { font-size: 20px; font-weight: 700; letter-spacing: -.02em; margin: 0; }
+.qp-success-amount { font-size: 22px; font-weight: 700; letter-spacing: -.02em; margin-top: 2px; }
+
+.qp-receipt { padding: 2px 18px; margin-top: 4px; }
+.qp-merchant { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--qp-line); }
+.qp-merchant-logo { width: 24px; height: 24px; border-radius: 6px; object-fit: cover; }
+.qp-merchant-name { font-size: 15px; font-weight: 600; }
+.qp-merchant-loc { font-size: 12px; color: var(--qp-muted); }
+.qp-row { display: grid; grid-template-columns: 22px auto minmax(0, 1fr); align-items: center; gap: 10px; padding: 8px 0; }
+.qp-row + .qp-row { border-top: 1px solid var(--qp-line); }
+.qp-row-icon { font-size: 16px; color: var(--qp-text-2); text-align: center; width: 22px; }
+.qp-row-label { font-size: 13px; color: var(--qp-muted); }
+.qp-row-value { font-size: 13px; font-weight: 500; text-align: right; overflow-wrap: anywhere; }
+
+.qp-tiles { display: grid; grid-template-columns: repeat(var(--qp-tiles, 3), 1fr); gap: 10px; }
+.qp-tile {
+  height: 64px; border: 0; border-radius: 14px; background: var(--qp-surface); color: var(--qp-text-2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  font-size: 13px; cursor: pointer; box-shadow: var(--qp-shadow); transition: color .15s, transform .12s;
+}
+.qp-tile i { font-size: 18px; color: var(--qp-text); }
+.qp-tile:hover, .qp-tile:hover i { color: var(--qp-accent); }
+.qp-tile:active { transform: scale(.97); }
+
+/* ── Merchant-required modal ──
+   Rendered by DynamicModalProvider, likely outside .qp-root, so --qp-*
+   vars scoped there may not cascade in — literal colors, not var()s. */
+.qp-merchant-required { display: flex; flex-direction: column; gap: 14px; padding: 4px 2px; }
+.qp-merchant-required p { margin: 0; font-size: 14px; line-height: 1.55; color: #334155; }
+.qp-merchant-required-btn {
+  height: 46px; border: 0; border-radius: 14px; background: #1d6bf3; color: #fff;
+  font-size: 15px; font-weight: 600; cursor: pointer; transition: background .15s;
+}
+.qp-merchant-required-btn:hover { background: #1657c4; }
+
+/* ── Small phones ── */
+@media (max-width: 370px) {
+  .qp-screen { padding-left: 14px; padding-right: 14px; }
+  .qp-amount { font-size: 52px; }
+  .qp-key { height: 58px; font-size: 24px; }
+  .qp-keypad { gap: 10px; }
+  .qp-pay-amount { font-size: 38px; }
+  .qp-method { grid-template-columns: 52px minmax(0, 1fr) 26px; gap: 12px; padding: 12px 14px; }
+  .qp-method-icon { width: 52px; height: 52px; font-size: 24px; }
+  .qp-success-title, .qp-success-amount { font-size: 25px; }
+}
+
+/* ── Short screens: keep the button on-screen ── */
+@media (max-height: 720px) {
+  .qp-steps { margin: 10px 0 16px; }
+  .qp-key { height: 56px; }
+  .qp-amount-row { min-height: 70px; }
+  .qp-success-badge { width: 104px; height: 104px; }
+  .qp-success-badge span { width: 76px; height: 76px; font-size: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qp-body, .qp-success-badge, .qp-caret { animation: none; }
+}

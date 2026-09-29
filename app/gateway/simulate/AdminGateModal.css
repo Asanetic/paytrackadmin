@@ -1,0 +1,57 @@
+.ag-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; background: rgba(11, 18, 32, .55); backdrop-filter: blur(2px);
+  animation: ag-fade .15s ease both;
+}
+@keyframes ag-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.ag-modal {
+  width: 100%; max-width: 360px; padding: 28px 26px 24px;
+  background: #fff; border-radius: 22px; text-align: center;
+  box-shadow: 0 24px 60px -20px rgba(15, 23, 42, .35);
+  display: flex; flex-direction: column; gap: 12px;
+  animation: ag-pop .2s cubic-bezier(.2, 1.2, .4, 1) both;
+}
+@keyframes ag-pop { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+
+.ag-icon {
+  width: 56px; height: 56px; margin: 0 auto 4px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #eaf2ff; color: #1d6bf3; font-size: 22px;
+}
+.ag-title { margin: 0; font-size: 19px; font-weight: 700; color: #0b1220; }
+.ag-subtitle { margin: 0 0 6px; font-size: 14px; color: #7b8698; line-height: 1.45; }
+
+.ag-input {
+  height: 52px; padding: 0 16px; border: 1.5px solid #e7ecf3; border-radius: 14px;
+  font-size: 16px; font-weight: 500; color: #0b1220; outline: none; text-align: center;
+  transition: border-color .15s, box-shadow .15s;
+}
+.ag-input:focus { border-color: #1d6bf3; box-shadow: 0 0 0 4px rgba(29, 107, 243, .09); }
+
+.ag-error {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 9px 12px; border-radius: 10px; background: #fef1f0; color: #c0261a; font-size: 13px;
+}
+
+.ag-primary {
+  position: relative; height: 52px; border: 0; border-radius: 14px;
+  background: #1d6bf3; color: #fff; font-size: 16px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; margin-top: 4px;
+  transition: background .15s, opacity .15s;
+}
+.ag-primary:hover:not(:disabled) { background: #1657c4; }
+.ag-primary:disabled { opacity: .45; cursor: not-allowed; }
+.ag-primary-icon { position: absolute; right: 18px; display: inline-flex; font-size: 17px; }
+.ag-spinner {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, .35); border-top-color: #fff;
+  animation: ag-spin .7s linear infinite;
+}
+@keyframes ag-spin { to { transform: rotate(360deg); } }
+
+.ag-cancel {
+  height: 40px; border: 0; background: none; color: #7b8698; font-size: 14px; font-weight: 500; cursor: pointer;
+}
+.ag-cancel:hover:not(:disabled) { color: #334155; }
