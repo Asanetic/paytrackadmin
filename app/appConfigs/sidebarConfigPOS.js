@@ -73,7 +73,7 @@ export const sidebarConfig = [
     type: "link",
     label: "Transactions",
     icon: "fa fa-exchange",
-    href: (routes) => `${routes.paytrackadmin}/payments/list`,
+    href: (routes) => `${routes.paytrackadmin}/moneyflow/list`,
     roles: []
   },
 
