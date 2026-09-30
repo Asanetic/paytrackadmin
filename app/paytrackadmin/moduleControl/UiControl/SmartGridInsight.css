@@ -67,7 +67,9 @@
 .sgi-menu-item i { width: 16px; text-align: center; color: var(--sgi-muted); }
 
 /* ── KPI cards ── */
-.sgi-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+/* Fixed 4-per-row (not auto-fit) — a 5th+ card wraps to a new row of 4
+   rather than the grid re-flowing everyone into 5 narrower columns. */
+.sgi-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .sgi-stat { display: flex; align-items: flex-start; gap: 14px; padding: 18px; }
 .sgi-stat-icon {
   flex: 0 0 48px; height: 48px; border-radius: 12px;
@@ -266,6 +268,7 @@
 /* ── Responsive ── */
 @media (max-width: 1199px) {
   .sgi-breakdowns.count-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sgi-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 991px) {
   .sgi-breakdowns.count-2, .sgi-breakdowns.count-3 { grid-template-columns: 1fr; }
