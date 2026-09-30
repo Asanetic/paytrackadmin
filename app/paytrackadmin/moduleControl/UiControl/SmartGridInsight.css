@@ -73,9 +73,18 @@
   flex: 0 0 48px; height: 48px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff;
 }
-.sgi-stat-body { min-width: 0; }
+.sgi-stat-body { min-width: 0; flex: 1 1 auto; }
 .sgi-stat-label { font-size: 13.5px; color: var(--sgi-text-2); font-weight: 500; }
-.sgi-stat-value { font-size: 24px; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; margin: 2px 0 6px; }
+/* clamp() keeps this from overshooting the card once numbers run into the
+   billions — scales down smoothly instead of a hard breakpoint jump, and
+   overflow-wrap/break-word is the actual fix for the overshoot itself
+   (font-size alone doesn't stop a single unbroken run of digits from
+   overflowing a flex/grid child). */
+.sgi-stat-value {
+  font-size: clamp(15px, 1.6vw, 22px);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.25; margin: 2px 0 6px;
+  overflow-wrap: anywhere; word-break: break-word;
+}
 .sgi-stat-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12.5px; color: var(--sgi-muted); }
 .sgi-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 6px; font-weight: 600; font-size: 12px; }
 .sgi-chip.is-up { background: #e7f8ee; color: #0f8a43; }
@@ -100,18 +109,27 @@
 .sgi-donut { position: relative; width: 150px; height: 150px; }
 .sgi-donut svg { width: 100%; height: 100%; }
 .sgi-donut-track { fill: none; stroke: #eef1f6; stroke-width: 16; }
-.sgi-donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; }
-.sgi-donut-center span { font-size: 12px; color: var(--sgi-muted); font-weight: 500; }
-.sgi-donut-center strong { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+.sgi-donut-center {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; line-height: 1.15; padding: 0 14px; text-align: center;
+}
+.sgi-donut-center span { font-size: 11px; color: var(--sgi-muted); font-weight: 500; }
+/* Fixed-size ring (150px, 16px stroke) can't grow with its content, so a
+   big value has to shrink + wrap instead — clamp() + max-width keeps it
+   inside the hole rather than spilling over the donut. */
+.sgi-donut-center strong {
+  font-size: clamp(11px, 2.4vw, 16px); font-weight: 700; letter-spacing: -.02em;
+  max-width: 72px; overflow-wrap: anywhere; word-break: break-word;
+}
 
 .sgi-legend, .sgi-bars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
-.sgi-legend li { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto 52px; align-items: center; gap: 10px; }
+.sgi-legend li { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto minmax(44px, auto); align-items: center; gap: 10px; }
 .sgi-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
 .sgi-legend-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--sgi-text-2); font-weight: 500; }
-.sgi-legend-value { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--sgi-text); }
-.sgi-legend-pct { text-align: right; color: var(--sgi-muted); font-variant-numeric: tabular-nums; }
+.sgi-legend-value { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--sgi-text); font-size: 12.5px; }
+.sgi-legend-pct { text-align: right; color: var(--sgi-muted); font-variant-numeric: tabular-nums; font-size: 12.5px; }
 
-.sgi-bars li { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto 52px; align-items: center; gap: 12px; }
+.sgi-bars li { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto minmax(44px, auto); align-items: center; gap: 12px; }
 .sgi-bar-label { color: var(--sgi-text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sgi-bar-track { height: 10px; border-radius: 999px; background: #eef2f8; overflow: hidden; }
 .sgi-bar-fill { display: block; height: 100%; border-radius: inherit; background: var(--sgi-accent); transition: width .5s ease; }
