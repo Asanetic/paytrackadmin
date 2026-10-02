@@ -1,0 +1,262 @@
+{
+    "smartapi": {
+        "base": "/api/paytrackadmin/smartapi"
+    },
+    "dashboard": {
+        "admin": "/api/paytrackadmin/dashboard/admin",
+        "main": "/api/paytrackadmin/dashboard/main",
+        "pay": "/api/paytrackadmin/dashboard/paydashboard",
+        "retail": "/api/paytrackadmin/dashboard/retail"
+    },
+    "earnings": {
+        "base": "/api/paytrackadmin/earnings"
+    },
+    "smartmessages": {
+        "base": "/api/paytrackadmin/messages/list",
+        "delete": "/api/paytrackadmin/messages/list/delete",
+        "import": "/api/paytrackadmin/messages/import"
+    },
+    "messages": {
+        "base": "/api/paytrackadmin/messages/list",
+        "delete": "/api/paytrackadmin/messages/list/delete",
+        "import": "/api/paytrackadmin/messages/import"
+    },
+    "messagetemplates": {
+        "base": "/api/paytrackadmin/messagetemplates/list",
+        "delete": "/api/paytrackadmin/messagetemplates/list/delete",
+        "import": "/api/paytrackadmin/messagetemplates/import"
+    },
+    "systemusers": {
+        "base": "/api/paytrackadmin/systemusers/list",
+        "delete": "/api/paytrackadmin/systemusers/list/delete",
+        "import": "/api/paytrackadmin/systemusers/import"
+    },
+    "clients": {
+        "base": "/api/paytrackadmin/clients/list",
+        "delete": "/api/paytrackadmin/clients/list/delete",
+        "import": "/api/paytrackadmin/clients/import"
+    },
+    "loanallocation": {
+        "create": "/api/paytrackadmin/loanallocation"
+    },
+    "phones": {
+        "base": "/api/paytrackadmin/phones/list",
+        "delete": "/api/paytrackadmin/phones/list/delete",
+        "import": "/api/paytrackadmin/phones/import"
+    },
+    "deviceallocations": {
+        "base": "/api/paytrackadmin/deviceallocations/list",
+        "delete": "/api/paytrackadmin/deviceallocations/list/delete",
+        "import": "/api/paytrackadmin/deviceallocations/import"
+    },
+    "loanplans": {
+        "base": "/api/paytrackadmin/loanplans/list",
+        "delete": "/api/paytrackadmin/loanplans/list/delete",
+        "import": "/api/paytrackadmin/loanplans/import"
+    },
+    "payments": {
+        "base": "/api/paytrackadmin/payments/list",
+        "delete": "/api/paytrackadmin/payments/list/delete",
+        "import": "/api/paytrackadmin/payments/import"
+    },
+    "loanapplications": {
+        "base": "/api/paytrackadmin/loanapplications/list",
+        "delete": "/api/paytrackadmin/loanapplications/list/delete",
+        "import": "/api/paytrackadmin/loanapplications/import"
+    },
+    "agents": {
+        "base": "/api/paytrackadmin/agents/list",
+        "delete": "/api/paytrackadmin/agents/list/delete",
+        "import": "/api/paytrackadmin/agents/import"
+    },
+    "commissions": {
+        "base": "/api/paytrackadmin/commissions/list",
+        "delete": "/api/paytrackadmin/commissions/list/delete",
+        "import": "/api/paytrackadmin/commissions/import"
+    },
+    "smartpayments": {
+        "base": "/api/paytrackadmin/smartpayments/list",
+        "delete": "/api/paytrackadmin/smartpayments/list/delete",
+        "import": "/api/paytrackadmin/smartpayments/import"
+    },
+    "smartpaymentsettings": {
+        "base": "/api/paytrackadmin/smartpaymentsettings/list",
+        "delete": "/api/paytrackadmin/smartpaymentsettings/list/delete",
+        "import": "/api/paytrackadmin/smartpaymentsettings/import"
+    },
+    "systemrolebundles": {
+        "base": "/api/paytrackadmin/systemrolebundles/list",
+        "delete": "/api/paytrackadmin/systemrolebundles/list/delete",
+        "import": "/api/paytrackadmin/systemrolebundles/import"
+    },
+    "contacts": {
+        "base": "/api/paytrackadmin/contacts/list",
+        "delete": "/api/paytrackadmin/contacts/list/delete",
+        "import": "/api/paytrackadmin/contacts/import"
+    },
+    "opportunities": {
+        "base": "/api/paytrackadmin/opportunities/list",
+        "delete": "/api/paytrackadmin/opportunities/list/delete",
+        "import": "/api/paytrackadmin/opportunities/import"
+    },
+    "systemmodules": {
+        "base": "/api/paytrackadmin/systemmodules/list",
+        "delete": "/api/paytrackadmin/systemmodules/list/delete",
+        "import": "/api/paytrackadmin/systemmodules/import"
+    },
+    "systemroles": {
+        "base": "/api/paytrackadmin/systemroles/list",
+        "delete": "/api/paytrackadmin/systemroles/list/delete",
+        "import": "/api/paytrackadmin/systemroles/import"
+    },
+    "loans": {
+        "base": "/api/paytrackadmin/loans/list",
+        "delete": "/api/paytrackadmin/loans/list/delete",
+        "import": "/api/paytrackadmin/loans/import"
+    },
+    "loaninstallments": {
+        "base": "/api/paytrackadmin/loaninstallments/list",
+        "delete": "/api/paytrackadmin/loaninstallments/list/delete",
+        "import": "/api/paytrackadmin/loaninstallments/import"
+    },
+    "phonemodels": {
+        "base": "/api/paytrackadmin/phonemodels/list",
+        "delete": "/api/paytrackadmin/phonemodels/list/delete",
+        "import": "/api/paytrackadmin/phonemodels/import"
+    },
+    "financingproducts": {
+        "base": "/api/paytrackadmin/financingproducts/list",
+        "delete": "/api/paytrackadmin/financingproducts/list/delete",
+        "import": "/api/paytrackadmin/financingproducts/import"
+    },
+    "mosyreminders": {
+        "base": "/api/paytrackadmin/mosyreminders/list",
+        "delete": "/api/paytrackadmin/mosyreminders/list/delete",
+        "import": "/api/paytrackadmin/mosyreminders/import"
+    },
+    "smartpaymentrequests": {
+        "base": "/api/paytrackadmin/smartpaymentrequests/list",
+        "delete": "/api/paytrackadmin/smartpaymentrequests/list/delete",
+        "import": "/api/paytrackadmin/smartpaymentrequests/import"
+    },
+    "roles": {
+        "base": "/api/paytrackadmin/roles/list",
+        "delete": "/api/paytrackadmin/roles/list/delete",
+        "import": "/api/paytrackadmin/roles/import"
+    },
+    "reconciliations": {
+        "base": "/api/paytrackadmin/reconciliations/list",
+        "delete": "/api/paytrackadmin/reconciliations/list/delete",
+        "import": "/api/paytrackadmin/reconciliations/import"
+    },
+    "branches": {
+        "base": "/api/paytrackadmin/branches/list",
+        "delete": "/api/paytrackadmin/branches/list/delete",
+        "import": "/api/paytrackadmin/branches/import",
+        "stats": "/api/paytrackadmin/branches/stats",
+        "summary": "/api/paytrackadmin/branches/summary"
+    },
+    "merchants": {
+        "base": "/api/paytrackadmin/merchants/list",
+        "delete": "/api/paytrackadmin/merchants/list/delete",
+        "import": "/api/paytrackadmin/merchants/import"
+    },
+    "gatewayipn": {
+        "base": "/api/paytrackadmin/gatewayipn"
+    },
+    "moneyflow": {
+        "base": "/api/paytrackadmin/moneyflow/list",
+        "delete": "/api/paytrackadmin/moneyflow/list/delete",
+        "import": "/api/paytrackadmin/moneyflow/import"
+    },
+    "businessevents": {
+        "base": "/api/paytrackadmin/businessevents/list",
+        "delete": "/api/paytrackadmin/businessevents/list/delete",
+        "import": "/api/paytrackadmin/businessevents/import"
+    },
+    "integrations": {
+        "base": "/api/paytrackadmin/integrations/list",
+        "delete": "/api/paytrackadmin/integrations/list/delete",
+        "import": "/api/paytrackadmin/integrations/import"
+    },
+    "paymentsources": {
+        "base": "/api/paytrackadmin/paymentsources/list",
+        "delete": "/api/paytrackadmin/paymentsources/list/delete",
+        "import": "/api/paytrackadmin/paymentsources/import"
+    },
+    "paymenttransactions": {
+        "base": "/api/paytrackadmin/paymenttransactions/list",
+        "delete": "/api/paytrackadmin/paymenttransactions/list/delete",
+        "import": "/api/paytrackadmin/paymenttransactions/import"
+    },
+    "inmoneyflow": {
+        "base": "/api/paytrackadmin/moneyflow/in",
+        "delete": "/api/paytrackadmin/moneyflow/in/delete",
+        "import": "/api/paytrackadmin/moneyflow/import"
+    },
+    "bymethodmoneyflow": {
+        "base": "/api/paytrackadmin/moneyflow/bymethod",
+        "delete": "/api/paytrackadmin/moneyflow/bymethod/delete",
+        "import": "/api/paytrackadmin/moneyflow/import"
+    },
+    "bybranchmoneyflow": {
+        "base": "/api/paytrackadmin/moneyflow/bybranch",
+        "delete": "/api/paytrackadmin/moneyflow/bybranch/delete",
+        "import": "/api/paytrackadmin/moneyflow/import"
+    },
+    "dailymoneyflow": {
+        "base": "/api/paytrackadmin/moneyflow/daily",
+        "delete": "/api/paytrackadmin/moneyflow/daily/delete",
+        "import": "/api/paytrackadmin/moneyflow/import"
+    },
+    "events": {
+        "base": "/api/paytrackadmin/events/list",
+        "delete": "/api/paytrackadmin/events/list/delete",
+        "import": "/api/paytrackadmin/events/import"
+    },
+    "inevents": {
+        "base": "/api/paytrackadmin/events/in",
+        "delete": "/api/paytrackadmin/events/in/delete",
+        "import": "/api/paytrackadmin/events/import"
+    },
+    "outevents": {
+        "base": "/api/paytrackadmin/events/out",
+        "delete": "/api/paytrackadmin/events/out/delete",
+        "import": "/api/paytrackadmin/events/import"
+    },
+    "typeevents": {
+        "base": "/api/paytrackadmin/events/type",
+        "delete": "/api/paytrackadmin/events/type/delete",
+        "import": "/api/paytrackadmin/events/import"
+    },
+    "dailyreports": {
+        "base": "/api/paytrackadmin/reports/daily",
+        "delete": "/api/paytrackadmin/reports/daily/delete",
+        "import": "/api/paytrackadmin/reports/import"
+    },
+    "monthlyreports": {
+        "base": "/api/paytrackadmin/reports/monthly",
+        "delete": "/api/paytrackadmin/reports/monthly/delete",
+        "import": "/api/paytrackadmin/reports/import"
+    },
+    "bymethodreports": {
+        "base": "/api/paytrackadmin/reports/bymethod",
+        "delete": "/api/paytrackadmin/reports/bymethod/delete",
+        "import": "/api/paytrackadmin/reports/import"
+    },
+    "branchreports": {
+        "base": "/api/paytrackadmin/reports/branch",
+        "delete": "/api/paytrackadmin/reports/branch/delete",
+        "import": "/api/paytrackadmin/reports/import"
+    },
+    "eventsreports": {
+        "base": "/api/paytrackadmin/reports/events",
+        "delete": "/api/paytrackadmin/reports/events/delete",
+        "import": "/api/paytrackadmin/reports/import"
+    },
+    "transactionsreports": {
+        "base": "/api/paytrackadmin/reports/transactions",
+        "delete": "/api/paytrackadmin/reports/transactions/delete",
+        "import": "/api/paytrackadmin/reports/import"
+    }
+}

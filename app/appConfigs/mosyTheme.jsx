@@ -37,6 +37,7 @@ const mosyThemeConfigs = {
 
   // Gradient and Sidebar
   btnFirstColor: "#000000",
+  
   btnSecondColor: "#1B6DC1",
   get sideBarBg() {
     return `linear-gradient(225deg, ${this.btnFirstColor}, ${this.btnSecondColor})`;
