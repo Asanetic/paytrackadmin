@@ -15,6 +15,7 @@ export default function AdminFooter() {
       <div id="alert_box"></div>
       <div id="magic_alert"></div>
       <DynamicModalProvider />
+      
       <script type="text/javascript" src={`https://portals.asanetic.com/ma/maira.js?coraasset=${mosyThemeConfigs.mosyAppName}`}></script>
 
       {/* <FloatingUpgradeButton/> */}
